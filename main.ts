@@ -1,9 +1,3 @@
-function Caption () {
-    game.splash("The rocket will lift off in 3 seconds")
-}
-function effects2 () {
-    effects.confetti.startScreenEffect()
-}
 function set_background () {
     scene.setBackgroundImage(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c f b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
@@ -128,26 +122,14 @@ c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 `)
 }
-function rocket () {
-    rocketship = sprites.create(img`
-. . . . . . . 1 1 . . . . . . . 
-. . . . . . f f f f . . . . . . 
-. . . . . f f b b f f . . . . . 
-. . . . . f b b b b f . . . . . 
-. . . . f f b b b b f f . . . . 
-. . . . f b b f f b b f . . . . 
-. . . . f b f 1 1 f b f . . . . 
-. . . . f b f 1 1 f b f . . . . 
-. . . . f b b f f b b f . . . . 
-. . . . f b b b b b b f . . . . 
-. . . . f b b b b b b f . . . . 
-. . . . f c c c c c c f . . . . 
-. . . 1 1 f f f f f f 1 1 . . . 
-. . . 1 . . . . . . . . 1 . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-    rocketship.y = 110
+function effects2 () {
+    effects.confetti.startScreenEffect()
+}
+function countdown () {
+    info.startCountdown(3)
+}
+function Caption () {
+    game.splash("The rocket will lift off in 3 seconds")
 }
 function Rocket_Flying () {
     rocketship.destroy()
@@ -173,8 +155,26 @@ function Rocket_Flying () {
     flyingship.vy += -100
     scene.cameraShake(4, 2000)
 }
-function countdown () {
-    info.startCountdown(3)
+function rocket () {
+    rocketship = sprites.create(img`
+. . . . . . . 1 1 . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f f b b f f . . . . . 
+. . . . . f b b b b f . . . . . 
+. . . . f f b b b b f f . . . . 
+. . . . f b b f f b b f . . . . 
+. . . . f b f 1 1 f b f . . . . 
+. . . . f b f 1 1 f b f . . . . 
+. . . . f b b f f b b f . . . . 
+. . . . f b b b b b b f . . . . 
+. . . . f b b b b b b f . . . . 
+. . . . f c c c c c c f . . . . 
+. . . 1 1 f f f f f f 1 1 . . . 
+. . . 1 . . . . . . . . 1 . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+    rocketship.y = 110
 }
 info.onCountdownEnd(function () {
     Rocket_Flying()
